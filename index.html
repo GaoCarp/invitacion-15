@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 — Sofía Ortiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+:root {
+  --verde-oscuro: #1e3a1e;
+  --verde-medio: #2d4a2d;
+  --verde-claro: #4a7a4a;
+  --crema: #e8e4d8;
+  --crema-oscuro: #d4cfc0;
+  --dorado: #b8a96a;
+  --blanco: #f5f2eb;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--verde-oscuro);
+  color: var(--verde-oscuro);
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(30, 58, 30, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: var(--crema);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(232,228,216,0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--crema); }
+
+/* Hamburger mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--crema);
+  transition: all 0.3s;
+}
+
+/* ===== SECTIONS BASE ===== */
+section {
+  min-height: 100vh;
+  padding: 100px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== HERO ===== */
+#inicio {
+  background: linear-gradient(160deg, var(--verde-medio) 0%, #3a5a3a 35%, var(--crema) 60%, #ddd8c4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%; /* altura relativa a pantalla */
+  overflow: hidden;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 mantiene proporción tipo portada */
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 0.05em;
+}
+
+.hero-content { max-width: 420px; }
+
+.mis-label {
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  opacity: 0.7;
+}
+
+.hero-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 160px;
+  font-weight: 300;
+  line-height: 0.8;
+  color: var(--verde-oscuro);
+  letter-spacing: -8px;
+}
+
+.hero-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 72px;
+  color: var(--verde-oscuro);
+  line-height: 1;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+.hero-frase-1 {
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 4px;
+}
+
+.hero-frase-2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--verde-oscuro);
+  margin-bottom: 30px;
+}
+
+.hero-info {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(30,58,30,0.25);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hero-info-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  position: relative;
+  background: rgba(232,228,216,0.4);
+}
+
+.hero-info-item + .hero-info-item {
+  border-left: 1px solid rgba(30,58,30,0.2);
+}
+
+.info-icon-circle {
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--verde-oscuro);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.info-icon-circle svg {
+  width: 15px; height: 15px;
+  stroke: var(--verde-oscuro);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-etiqueta {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 3px;
+}
+
+.info-dato {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  color: var(--verde-oscuro);
+  line-height: 1.3;
+}
+
+/* Countdown */
+.countdown-wrap {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.countdown-titulo {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.countdown {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(30,58,30,0.15);
+  border: 1px solid rgba(30,58,30,0.2);
+  border-radius: 3px;
+  padding: 10px 14px;
+  min-width: 56px;
+}
+
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--verde-oscuro);
+  line-height: 1;
+}
+
+.countdown-unit {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-top: 3px;
+}
+
+/* Salon */
+.salon-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.seccion-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 6px;
+}
+
+.salon-nombre {
+  font-family: 'Great Vibes', cursive;
+  font-size: 52px;
+  color: var(--verde-oscuro);
+  margin-bottom: 16px;
+}
+
+.salon-mapa {
+  width: 100%;
+  max-width: 600px;
+  height: 260px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(30,58,30,0.25);
+  margin: 0 auto 16px;
+}
+
+.salon-mapa iframe {
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.dress-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30,58,30,0.12);
+  border: 1px solid rgba(30,58,30,0.2);
+  border-radius: 3px;
+  padding: 12px 24px;
+  margin-top: 8px;
+}
+
+.dress-code-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+}
+
+.dress-code-valor {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--verde-oscuro);
+}
+
+/* ===== SECCION COMUN ===== */
+.seccion-comun {
+  background: var(--crema);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+}
+
+.seccion-comun.fondo-verde {
+  background: linear-gradient(160deg, var(--verde-medio), #3a5a3a);
+  color: var(--crema);
+}
+
+.titulo-seccion {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--verde-oscuro);
+  margin-bottom: 8px;
+}
+
+.fondo-verde .titulo-seccion { color: var(--crema); }
+
+.subtitulo-seccion {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--verde-claro);
+  margin-bottom: 40px;
+}
+
+.fondo-verde .subtitulo-seccion { color: rgba(232,228,216,0.7); }
+
+.divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  width: 200px;
+}
+.divisor-linea { flex: 1; height: 0.5px; background: rgba(30,58,30,0.3); }
+.fondo-verde .divisor-linea { background: rgba(232,228,216,0.3); }
+.divisor-rombo {
+  width: 6px; height: 6px;
+  background: var(--verde-claro);
+  transform: rotate(45deg);
+}
+.fondo-verde .divisor-rombo { background: rgba(232,228,216,0.5); }
+
+/* ===== RESTRICCION ===== */
+.restriccion-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px;
+}
+
+.restriccion-card {
+  background: white;
+  border: 1px solid rgba(30,58,30,0.15);
+  border-radius: 3px;
+  padding: 28px 32px;
+  min-width: 180px;
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.restriccion-card:hover {
+  border-color: var(--verde-claro);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(30,58,30,0.12);
+}
+
+.restriccion-card.seleccionada {
+  border-color: var(--verde-oscuro);
+  background: rgba(30,58,30,0.05);
+}
+
+.restriccion-card.seleccionada::after {
+  content: '✓';
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 14px;
+  color: var(--verde-claro);
+  font-weight: 600;
+}
+
+.restriccion-emoji { font-size: 36px; }
+
+.restriccion-nombre {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--verde-oscuro);
+  text-align: center;
+}
+
+.restriccion-nota {
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  max-width: 400px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* ===== DATOS BANCARIOS ===== */
+.banco-card {
+  background: white;
+  border: 1px solid rgba(30,58,30,0.15);
+  border-radius: 3px;
+  padding: 40px 48px;
+  #max-width: 480px;
+  width: 100%;
+  text-align: left;
+}
+
+.banco-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 0.5px solid rgba(30,58,30,0.1);
+}
+
+.banco-row:last-child { border-bottom: none; }
+
+.banco-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+}
+
+.banco-valor {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--verde-oscuro);
+  text-align: right;
+}
+
+.banco-copy {
+  background: none;
+  border: 1px solid rgba(30,58,30,0.25);
+  border-radius: 2px;
+  padding: 3px 8px;
+  font-size: 10px;
+  color: var(--verde-claro);
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.banco-copy:hover {
+  background: var(--verde-oscuro);
+  color: var(--crema);
+  border-color: var(--verde-oscuro);
+}
+
+.banco-nota {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--verde-oscuro);
+  text-align: center;
+  margin-top: 30px;
+  max-width: 380px;
+  line-height: 1.5;
+}
+
+/* ===== CONFIRMAR ===== */
+.form-wrap {
+  background: white;
+  border: 1px solid rgba(30,58,30,0.15);
+  border-radius: 3px;
+  padding: 40px 48px;
+  #max-width: 500px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 8px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(30,58,30,0.2);
+  border-radius: 2px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--verde-oscuro);
+  background: var(--blanco);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--verde-claro);
+}
+
+.form-select { cursor: pointer; }
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--verde-oscuro);
+  padding: 10px 16px;
+  border: 1px solid rgba(30,58,30,0.2);
+  border-radius: 2px;
+  flex: 1;
+  transition: all 0.2s;
+}
+
+.radio-label:hover { border-color: var(--verde-claro); }
+.radio-label input { accent-color: var(--verde-oscuro); }
+
+.btn-confirmar {
+  width: 100%;
+  padding: 16px;
+  background: var(--verde-oscuro);
+  color: var(--crema);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+
+.btn-confirmar:hover { background: var(--verde-claro); }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+.form-success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.form-success-titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  color: var(--verde-oscuro);
+  margin-bottom: 8px;
+}
+
+.form-success-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--verde-claro);
+}
+
+/* ===== DECORACIONES ===== */
+.hoja-deco {
+  position: absolute;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  color: rgba(255,255,255,0.6);
+  animation: twinkle 3s infinite;
+  pointer-events: none;
+}
+@keyframes twinkle {
+  0%,100%{opacity:0.2;transform:scale(0.8)}
+  50%{opacity:1;transform:scale(1.2)}
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--verde-oscuro);
+  text-align: center;
+  padding: 30px;
+  color: rgba(232,228,216,0.4);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+footer span {
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
+  color: rgba(232,228,216,0.6);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(30,58,30,0.98);
+    padding: 20px;
+    gap: 16px;
+  }
+  .hamburger { display: flex; }
+
+  section { padding: 80px 20px 60px; }
+  #inicio { padding: 80px 20px 60px; gap: 30px; }
+  .hero-number { font-size: 110px; }
+  .hero-name { font-size: 54px; }
+  #.hero-photo { width: 260px; height: 340px; }
+  #.banco-card, .form-wrap { padding: 28px 24px; }
+  .titulo-seccion { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">Sofía</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#bancarios">Datos Bancarios</a></li>
+    <li><a href="#confirmar">Confirmar</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== INICIO ===== -->
+<section id="inicio">
+ <!-- FOTO -->
+  <div class="hero-photo">
+ 	<img src="sofia.png" alt="Sofía Ortiz" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+</section>
+<section id="inicio">
+
+  <!-- sparkles decorativos -->
+  <div class="sparkle" style="top:20%;left:48%;animation-delay:0s;font-size:12px">✦</div>
+  <div class="sparkle" style="top:35%;left:52%;animation-delay:1s;font-size:8px">✧</div>
+  <div class="sparkle" style="top:65%;left:46%;animation-delay:1.8s;font-size:10px">✦</div>
+  <div class="sparkle" style="top:15%;right:18%;animation-delay:0.5s;font-size:9px">✧</div>
+  <div class="sparkle" style="top:55%;right:12%;animation-delay:1.3s;font-size:11px">✦</div>
+ 
+  <!-- CONTENIDO -->
+  <div class="hero-content">
+    <p class="mis-label">Mis</p>
+    <p class="hero-number">15</p>
+    <p class="hero-name">Sofía Ortiz</p>
+    <p class="hero-frase-1">Un día único, una noche inolvidable</p>
+    <p class="hero-frase-2">¡Te espero para celebrarlo juntos!</p>
+
+    <!-- Info fecha/hora/lugar -->
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <div class="info-icon-circle">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <p class="info-etiqueta">Fecha</p>
+        <!-- ★ CAMBIAR FECHA ★ -->
+        <p class="info-dato">27/06/2026</p>
+      </div>
+      <div class="hero-info-item">
+        <div class="info-icon-circle">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+        </div>
+        <p class="info-etiqueta">Hora</p>
+        <!-- ★ CAMBIAR HORA ★ -->
+        <p class="info-dato">21:00 hs</p>
+      </div>
+      <div class="hero-info-item">
+        <div class="info-icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 21C12 21 5 13.5 5 8.5C5 5.46 8.13 3 12 3C15.87 3 19 5.46 19 8.5C19 13.5 12 21 12 21Z"/><circle cx="12" cy="8.5" r="2.5"/></svg>
+        </div>
+        <p class="info-etiqueta">Dirección</p>
+        <!-- ★ CAMBIAR DIRECCION ★ -->
+        <p class="info-dato">Francisco Bilbao 2930<br>CABA</p>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <p class="countdown-titulo">Cuenta regresiva</p>
+      <div class="countdown">
+        <div class="countdown-item"><span class="countdown-num" id="cd-dias">--</span><span class="countdown-unit">días</span></div>
+        <div class="countdown-item"><span class="countdown-num" id="cd-horas">--</span><span class="countdown-unit">horas</span></div>
+        <div class="countdown-item"><span class="countdown-num" id="cd-min">--</span><span class="countdown-unit">min</span></div>
+        <div class="countdown-item"><span class="countdown-num" id="cd-seg">--</span><span class="countdown-unit">seg</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Salon separado -->
+<div class="seccion-comun" style="min-height:auto;padding:60px 40px;">
+  <p class="seccion-titulo">Celebraremos en</p>
+  <!-- ★ CAMBIAR NOMBRE DEL SALON ★ -->
+  <p class="salon-nombre">Salón Craigmhor</p>
+
+  <!-- ★ CAMBIAR EL src DEL IFRAME POR TU DIRECCION EN GOOGLE MAPS ★
+       Para obtenerlo: buscá la dirección en Google Maps → Compartir → Insertar mapa → copiá el src del iframe -->
+  <div class="salon-mapa">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26262.23605766801!2d-58.480174831282156!3d-34.635011906024765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9808c15b821%3A0x4f9345018836fd61!2sCraigmhor!5e0!3m2!1ses!2sar!4v1776976660467!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div class="dress-code">
+    <span class="dress-code-label">Dress Code</span>
+    <span style="width:1px;height:20px;background:rgba(30,58,30,0.2);display:inline-block;margin:0 8px"></span>
+    <!-- ★ CAMBIAR DRESS CODE ★ -->
+    <span class="dress-code-valor">Elegante</span>
+  </div>
+</div>
+
+<!-- ===== DATOS BANCARIOS ===== -->
+<section id="bancarios" class="seccion-comun fondo-verde">
+  <p class="seccion-titulo" style="font-size:11px;letter-spacing:0.25em;color:rgba(232,228,216,0.5)">Regalo</p>
+  <h2 class="titulo-seccion">Datos Bancarios</h2>
+  <p class="subtitulo-seccion">Tu presencia es mi mejor regalo,<br>pero si querés ayudarme a ahorrar...</p>
+  <div class="divisor"><div class="divisor-linea"></div><div class="divisor-rombo"></div><div class="divisor-linea"></div></div>
+
+  <div class="banco-card">
+
+    <div class="banco-row">
+      <span class="banco-label">Banco</span>
+      <!-- ★ CAMBIAR DATOS BANCARIOS ★ -->
+      <span class="banco-valor">Banco Provincia</span>
+    </div>
+
+    <div class="banco-row">
+      <span class="banco-label">Titular</span>
+      <span class="banco-valor">Sofia Ortiz Franco</span>
+    </div>
+
+    <div class="banco-row">
+      <span class="banco-label">CBU</span>
+      <span class="banco-valor" id="cbu-val">0140018203401855313308</span>
+      <button class="banco-copy" onclick="copiar('cbu-val', this)">Copiar</button>
+    </div>
+
+    <div class="banco-row">
+      <span class="banco-label">Alias</span>
+      <span class="banco-valor" id="alias-val">sofiaortizfranco</span>
+      <button class="banco-copy" onclick="copiar('alias-val', this)">Copiar</button>
+    </div>
+  </div>
+
+  <p class="subtitulo-seccion">
+    "Tu presencia ilumina mi noche,<br>cada gesto suma a este sueño 🌿"
+  </p>
+</section>
+
+<section id="confirmar" class="seccion-comun">
+<!-- ===== CONFIRMAR ===== -->
+</div>
+   <p class="subtitulo-seccion">¡Te espero! Confirmá antes del 31 de mayo</p>
+  <div class="divisor"><div class="divisor-linea"></div><div class="divisor-rombo"></div><div class="divisor-linea"></div></div>
+
+<div class="form-wrap" style="padding:0;overflow:hidden;max-width:640px;width:100%;border-radius:3px;" >
+  <iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSfyB1YO6RjN4MIYlMZ_UfEV--S-OA2HOSM8cAKmvnBbUy_bOw/viewform?usp=header"
+    width="100%"
+    height="1480"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    style="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfyB1YO6RjN4MIYlMZ_UfEV--S-OA2HOSM8cAKmvnBbUy_bOw/viewform?embedded=true" width="640" height="1475" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+  </iframe>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Sofía Ortiz</span>
+  Mis 15 años · 27/06/2026
+</footer>
+
+<script>
+// ===== MENU MOBILE =====
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// ===== COUNTDOWN =====
+// ★ CAMBIAR FECHA Y HORA DEL EVENTO ★
+var eventDate = new Date('2026-06-27T21:00:00');
+
+function actualizarCountdown() {
+  var ahora = new Date();
+  var diff = eventDate - ahora;
+  if (diff <= 0) {
+    document.getElementById('cd-dias').textContent = '0';
+    document.getElementById('cd-horas').textContent = '0';
+    document.getElementById('cd-min').textContent = '0';
+    document.getElementById('cd-seg').textContent = '0';
+    return;
+  }
+  var dias  = Math.floor(diff / 86400000);
+  var horas = Math.floor((diff % 86400000) / 3600000);
+  var min   = Math.floor((diff % 3600000) / 60000);
+  var seg   = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-dias').textContent  = String(dias).padStart(2,'0');
+  document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
+  document.getElementById('cd-min').textContent   = String(min).padStart(2,'0');
+  document.getElementById('cd-seg').textContent   = String(seg).padStart(2,'0');
+}
+actualizarCountdown();
+setInterval(actualizarCountdown, 1000);
+
+// ===== COPIAR AL PORTAPAPELES =====
+function copiar(id, btn) {
+  var texto = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(texto).then(function() {
+    var original = btn.textContent;
+    btn.textContent = '¡Copiado!';
+    btn.style.background = 'var(--verde-oscuro)';
+    btn.style.color = 'var(--crema)';
+    setTimeout(function() {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  });
+}
+
+// ===== RESTRICCION TOGGLE =====
+function toggleRestriccion(el) {
+  el.classList.toggle('seleccionada');
+}
+
+// ===== CONFIRMAR FORM =====
+function confirmar() {
+  var nombre = document.getElementById('f-nombre').value.trim();
+  var asiste = document.querySelector('input[name="asiste"]:checked');
+
+  if (!nombre) {
+    alert('Por favor ingresá tu nombre.');
+    return;
+  }
+  if (!asiste) {
+    alert('Por favor indicá si vas a asistir.');
+    return;
+  }
+
+  // Acá podés conectar con Google Forms, Formspree, etc.
+  // Por ahora muestra el mensaje de éxito
+  document.getElementById('form-contenido').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
