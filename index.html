@@ -294,7 +294,14 @@ section {
 
 .salon-nombre {
   font-family: 'Great Vibes', cursive;
-  font-size: 52px;
+  font-size: 60px;
+  color: var(--verde-oscuro);
+  margin-bottom: 16px;
+}
+
+.salon-plata {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
   color: var(--verde-oscuro);
   margin-bottom: 16px;
 }
@@ -751,8 +758,7 @@ footer span {
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
         </div>
         <p class="info-etiqueta">Hora</p>
-        <!-- ★ CAMBIAR HORA ★ -->
-        <p class="info-dato">21:00 hs</p>
+        <p class="info-dato">21:00 hs a <br> 05:00 hs</p>
       </div>
       <div class="hero-info-item">
         <div class="info-icon-circle">
@@ -782,7 +788,8 @@ footer span {
 <div class="seccion-comun" style="min-height:auto;padding:60px 40px;">
   <p class="seccion-titulo">Celebraremos en</p>
   <!-- ★ CAMBIAR NOMBRE DEL SALON ★ -->
-  <p class="salon-nombre">Salón Craigmhor</p>
+  <p class="salon-nombre">Craigmhor</p>
+  <p class="salon-plata">Salón Plata</p>
 
   <!-- ★ CAMBIAR EL src DEL IFRAME POR TU DIRECCION EN GOOGLE MAPS ★
        Para obtenerlo: buscá la dirección en Google Maps → Compartir → Insertar mapa → copiá el src del iframe -->
@@ -843,7 +850,7 @@ footer span {
   <div class="divisor"><div class="divisor-linea"></div><div class="divisor-rombo"></div><div class="divisor-linea"></div></div>
 
 <div class="form-wrap" style="padding:0;overflow:hidden;max-width:640px;width:100%;border-radius:3px;" >
-  <iframe
+   <iframe
     src="https://docs.google.com/forms/d/e/1FAIpQLSfyB1YO6RjN4MIYlMZ_UfEV--S-OA2HOSM8cAKmvnBbUy_bOw/viewform?usp=header"
     width="100%"
     height="1480"
